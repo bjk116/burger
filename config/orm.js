@@ -1,5 +1,5 @@
 //Import MySQL conncetion
-var connection = require('connection.js');
+var connection = require("../config/connection.js");
 
 //Object for all our SQL statement functions
 var orm = {
