@@ -20,8 +20,25 @@ router.get('/', function(req, res) {
 	});
 });
 
-//Need a post to create hamburgers
-
 //Need a route for changing hamburger to devoured
+router.put('/:id?', function(req, res) {
+	var burgerID = req.params.id;
+	//update database, change eaten from 0 to 1
+	//Go from C to M
+	burger.update(burgerID, function() {
+		res.redirect('/');
+	});
+
+	//Then from C to V
+});
+
+//Need a post to create hamburgers
+router.post('/create-burger', function(req, res) {
+	var newBurgerToAdd = req.body.burgerName;
+	burger.create(newBurgerToAdd, function() {
+		res.redirect('/');
+	});
+})
+
 
 module.exports = router;
